@@ -43,7 +43,7 @@ public class controller implements Serializable {
        
                 
         try {
-             conn = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=QUANLYCUAHANGDIENTHOAI;username=sa;password=nhv");
+             conn = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=QUANLYCUAHANGDIENTHOAI;username=sa;password=hau@@123");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -698,7 +698,7 @@ public class controller implements Serializable {
          
      }
        
-       public void updatehdmt(udhd s) {
+       public boolean updatehdmt(udhd s) {
           String sql="update HOADON set MAMT= ?,TONGTIEN=? ,HTTT=? where MAHD=? ";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -706,13 +706,15 @@ public class controller implements Serializable {
             ps.setInt(2, s.getTongtien());
             ps.setString(3, s.getHttt());
             ps.setString(4, s.getMahd());
-            ps.executeUpdate();
+             ps.executeUpdate();
             ps.close();
+            return ps.executeUpdate() >0;
+            
            } catch (Exception e) {
              e.printStackTrace();
         }  
         
-        
+        return  false;
          
      }
        public void updatehdtg(udhd s){

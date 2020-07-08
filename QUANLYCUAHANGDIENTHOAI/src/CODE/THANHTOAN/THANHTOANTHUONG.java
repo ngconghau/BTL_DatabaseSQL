@@ -256,15 +256,13 @@ new THANHTOAN(a,an).setVisible(true);
                  up.setTongtien(a1);
                  up.setHttt(jComboBox1.getSelectedItem().toString() );
                  up.setMahd(s);
-                 new controller().updateptttmt(s1,s);
-              if (new  controller().addMT(trathuong))JOptionPane.showMessageDialog(rootPane,"THANH TOÁN THÀNH CÔNG");
-              new  controller().updatehdmt(up);
-              
-               JOptionPane.showMessageDialog(rootPane,""+s1+" "+a1+" "+s);
+              new  controller().addMT(trathuong);
+              if(new  controller().updatehdmt(up))JOptionPane.showMessageDialog(rootPane,"THANH TOÁN THÀNH CÔNG");
+               new controller().updateptttmt(s1,s);
+               JOptionPane.showMessageDialog(rootPane,""+up.getMatg()+" "+up.getMamt()+" "+up.getMahd());
               
               this.dispose();
-              new TRANGCHU().setVisible(true);
-        }
+              new TRANGCHU().setVisible(true);}
       else  JOptionPane.showMessageDialog(rootPane," GIA TRỊ QUÀ TẶNG VƯỢT MỨC CHO PHÉP ");
       
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -311,4 +309,8 @@ new THANHTOAN(a,an).setVisible(true);
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
+
+    private Object controller() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

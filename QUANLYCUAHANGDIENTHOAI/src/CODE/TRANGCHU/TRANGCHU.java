@@ -529,8 +529,8 @@ else{
             
          s1.setTen(table.getValueAt(a[i], 0).toString());
          s1.setSdt(table.getValueAt(a[i], 1).toString());
-         s1.setMahd(table.getValueAt(a[i], 2).toString());
-         s1.setMasp(table.getValueAt(a[i], 3).toString());
+         s1.setMahd(table.getValueAt(a[i], 3).toString());
+         s1.setMasp(table.getValueAt(a[i], 2).toString());
          s1.setGia(Integer.parseInt(table.getValueAt(a[i], 4).toString()));
         a1.add(s1);
        }
@@ -636,7 +636,8 @@ String KH;String x = null;
                 chitiethd.setMASP(jTextField4.getText());
                 chitiethd.setTHANHTIEN(s.getGIA());
                new controller().addCTHD(chitiethd);
-               
+               ArrayList<table1> list=new controller().gettable();
+        showTable(list);
                
             }}}
         MUASP mua=new MUASP();
